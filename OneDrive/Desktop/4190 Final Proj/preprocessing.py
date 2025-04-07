@@ -25,14 +25,14 @@ def assign_label(url):
     if 'foxnews' in url:
         return 'fox'
     elif 'cnn' in url:
-        return 'cnn'
+        return 'nbc'
     else:
         return 'unknown'
 
 df['label'] = df['url'].apply(assign_label)
 
 # drop rows that aren't Fox or CNN
-df = df[df['label'].isin(['fox', 'cnn'])]
+df = df[df['label'].isin(['fox', 'nbc'])]
 
 # Save to a new CSV
 df.to_csv("preprocessed_training.csv", index=False)
